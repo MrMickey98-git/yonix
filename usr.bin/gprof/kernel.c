@@ -42,7 +42,7 @@ kernel_getnfile(const char *unused __unused, char ***defaultEs)
 		errx(1, "Insufficient memory for symbol table");
 	npe = nl;
 	for (name = namelist; *name != '\0'; name += strlen(name) + 1) {
-		struct kld_sym_lookup ksl;
+		struct kld_sym_lookup ksl = { 0 };
 
 		ksl.version = sizeof(ksl);
 		ksl.symname = name;
